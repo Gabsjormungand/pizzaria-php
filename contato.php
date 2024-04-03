@@ -22,7 +22,6 @@
                 <a href="index.php" class="me-2">Home</a>
                 <a href="quem-somos.php" class="me-2">Quem Somos</a>
                 <a href="contato.php" class="me-2">Contato</a>
-                <a href="pedidos.php" class="me-2">FAÇA SEU PEDIDO</a>
             </div>
         </nav>
         <main class="bg-light row pe-3 ps-3">

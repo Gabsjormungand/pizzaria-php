@@ -3,13 +3,33 @@
 <?php include("cabecalho.php")?>
 <?php include("menu.php")?>
         <main class="bg-light row pe-3 ps-3">
-            <div class="row row pe-3 ps-3">
+            <div class="row">
                 <h2 class="mt-4 h1"> A melhor Pizza da região</h2>
                 <hr>
-                <div class="col">
-                    <img src="calabreza.jpg" alt="Calabreza">
-                    <p>Calabreza</p>
+                <?php
+                $servidor = "127.0.0.1";
+                $usuario = "root";
+                $senha = "";
+                $bd = "bd_pizza_novo";
+
+                $conexao = mysqli_connect($servidor, $usuario, $senha, $bd, 3306);
+
+                $sql = "select * from pizzas_novo order by qtd_venda desc limit 3";
+
+                $todasAsPizzas = mysqli_query($conexao, $sql);
+                while($umaPizza = mysqli_fetch_assoc($todasAsPizzas)){
+                ?>
+                
+                
+                <div class="col text-center">
+                    <img src="<?php echo $umaPizza["foto"];?>" alt="<?php echo $umaPizza["nome"];?>" class="img-fluid">
+                    <p><?php echo $umaPizza["nome"];?></p>
+                    <p><?php echo $umaPizza["classificacao"];?></p>
                 </div>
+                <?php
+                }
+                mysqli_close($conexao);
+                ?>
                 <hr>
             </div>
             <div class="row">
@@ -17,14 +37,14 @@
                     <h3>Nossos Sabores</h3>
                     <p class="sabores">Á Moda da Casa <br>
                     <?php
-                    $servidor = "10.125.47.28";
-                    $usuario = "pizzaiolo";
-                    $senha = "123";
-                    $bd = "bd_pizza";
+                    $servidor = "127.0.0.1";
+                    $usuario = "root";
+                    $senha = "";
+                    $bd = "bd_pizza_novo";
 
-                    $conexao = mysqli_connect($servidor, $usuario, $senha, $bd, 3300);
+                    $conexao = mysqli_connect($servidor, $usuario, $senha, $bd, 3306);
 
-                    $sql = "select nome from pizzas_novo";
+                    $sql = "select nome from pizzas_novo order by nome";
 
                     $todasAsPizzas = mysqli_query($conexao, $sql);
 

@@ -23,8 +23,13 @@
                 
                 <div class="col text-center">
                     <img src="<?php echo $umaPizza["foto"];?>" alt="<?php echo $umaPizza["nome"];?>" class="img-fluid">
+                    <?php
+                    $estrelas = $umaPizza["classificacao"];
+                    for ($i=0; $i < $estrelas ; $i++){
+                        echo "⭐";
+                    }
+                    ?>
                     <p><?php echo $umaPizza["nome"];?></p>
-                    <p><?php echo $umaPizza["classificacao"];?></p>
                 </div>
                 <?php
                 }
